@@ -1,11 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Cantata+One");
 body {
   margin: 0;
   padding: 0;
   background-color: darkgrey;
-  font-family: sans-serif; }
+  font-family: 'Cantata One', serif; }
 
 ul {
-  margin-top: 150px; }
+  margin-top: 175px; }
 
 ul, li {
   padding: 0;
@@ -35,7 +36,7 @@ ul, li {
   position: fixed;
   top: 0;
   left: 0;
-  height: 150px; }
+  height: 175px; }
   .search-input-container input {
     outline: 0;
     background-color: rgba(0, 0, 0, 0.95);
@@ -45,4 +46,6 @@ ul, li {
     color: white;
     padding: 20px 10px;
     width: 60%;
-    margin-left: 30px; }
+    margin-left: 30px;
+    font-family: 'Cantata One', serif;
+    margin-top: 30px; }

@@ -1,10 +1,12 @@
-$search-container-height: 150px;
+@import url('https://fonts.googleapis.com/css?family=Cantata+One');
+
+$search-container-height: 175px;
 
 body {
   margin: 0;
   padding: 0;
   background-color: darkgrey;
-  font-family: sans-serif;
+  font-family: 'Cantata One', serif;
 }
 
 ul {
@@ -56,5 +58,7 @@ ul, li {
     padding: 20px 10px;
     width: 60%;
     margin-left: 30px;
+    font-family: 'Cantata One', serif;
+    margin-top: 30px;
   }
 }
