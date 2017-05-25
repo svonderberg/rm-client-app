@@ -1,10 +1,48 @@
 body {
-  background-color: darkgrey; }
+  margin: 0;
+  padding: 0;
+  background-color: darkgrey;
+  font-family: sans-serif; }
 
-input {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: none;
-  border-bottom: 2px solid white;
-  font-size: 18px;
-  color: white;
-  padding: 10px 5px; }
+ul {
+  margin-top: 150px; }
+
+ul, li {
+  padding: 0;
+  list-style: none; }
+  ul a, li a {
+    height: 200px;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    background-size: cover; }
+    ul a h1, li a h1 {
+      color: white;
+      margin: 0;
+      padding: 20px 30px;
+      background-color: rgba(0, 0, 0, 0.75);
+      position: absolute;
+      bottom: 0;
+      font-weight: normal;
+      font-size: 2em; }
+
+.search-input-container {
+  background-color: black;
+  opacity: .85;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 150px; }
+  .search-input-container input {
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: none;
+    border-bottom: 2px solid white;
+    font-size: 3em;
+    color: white;
+    padding: 20px 10px;
+    width: 60%;
+    margin-left: 30px; }

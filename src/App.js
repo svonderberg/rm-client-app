@@ -4,8 +4,7 @@ import '../src/App.css';
 
 const ArtObject = ({id, title, pageURL, imageURL}) => 
   <li>
-    <a href={pageURL} target="_blank">
-      <img alt={title} src={imageURL} />
+    <a href={pageURL} target="_blank" style={{backgroundImage: `url(${imageURL})`}}>
       <h1>{title}</h1>
     </a>
   </li>;
@@ -16,7 +15,7 @@ class App extends Component {
     this.doSearch = this.doSearch.bind(this);
 
     this.state = {
-      searchTerm: '',
+      searchTerm: 'rembrandt',
       loading: true,
       artObjects: []
     };
@@ -49,13 +48,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <DebounceInput
-          placeholder="Search"
-          minLength={2}
-          debounceTimeout={300}
-          onChange={this.doSearch}
-        />
-
         {this.state.loading && <div>Loading...</div>}
 
         {this.state.loading || 
@@ -64,6 +56,15 @@ class App extends Component {
               (artObject, i) => <ArtObject key={i} {...artObject} />
             )}
           </ul>}
+
+        <div className="search-input-container">
+          <DebounceInput
+            placeholder="Rembrandt"
+            minLength={2}
+            debounceTimeout={300}
+            onChange={this.doSearch}
+          />
+        </div>
       </div>
     );
   }
