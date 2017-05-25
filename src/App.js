@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import DebounceInput from 'react-debounce-input';
 import '../src/App.css';
 
-const ArtObject = ({id, title, headerImage}) => 
+const ArtObject = ({id, title, pageURL, imageURL}) => 
   <li>
-      {headerImage && <img alt={title} src={headerImage.url} />}
-      {!headerImage && <p>No image available</p>}
+    <a href={pageURL} target="_blank">
+      <img alt={title} src={imageURL} />
       <h1>{title}</h1>
+    </a>
   </li>;
 
 class App extends Component {
@@ -61,7 +62,9 @@ class App extends Component {
 
         {this.state.loading || 
           <ul>
-            {this.state.artObjects.map(artObject => <ArtObject key={artObject.id} {...artObject} />)}
+            {this.state.artObjects.map(
+              (artObject, i) => <ArtObject key={i} {...artObject} />
+            )}
           </ul>}
       </div>
     );
