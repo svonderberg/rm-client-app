@@ -5,6 +5,7 @@
   "dependencies": {
     "fetch": "^1.1.0",
     "react": "^15.5.4",
+    "react-debounce-input": "^3.0.0",
     "react-dom": "^15.5.4",
     "whatwg-fetch": "^2.0.3"
   },

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DebounceInput from 'react-debounce-input';
 import '../src/App.css';
 
 const ArtObject = ({id, title, headerImage}) => 
@@ -11,10 +12,7 @@ const ArtObject = ({id, title, headerImage}) =>
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.setSearchTerm = this.setSearchTerm.bind(this);
     this.doSearch = this.doSearch.bind(this);
-    this.onSearchKeyDown = this.onSearchKeyDown.bind(this);
 
     this.state = {
       searchTerm: '',
@@ -28,9 +26,12 @@ class App extends Component {
     this.doSearch();
   }
 
-  doSearch() {
+  doSearch(e) {
     let that = this;
-    that.setState({loading: true});
+    that.setState({
+      loading: true,
+      searchTerm: e ? e.target.value : ''
+    });
 
     fetch(`http://localhost:3000/${that.state.searchTerm}`)
       .then(res => {
@@ -46,25 +47,15 @@ class App extends Component {
       });
   }
 
-  setSearchTerm(e) {
-    this.setState({searchTerm: e.target.value});
-  }
-
-  onSearchKeyDown(e) {
-    if (e.keyCode === 13)
-      this.doSearch();
-  }
-
   render() {
     return (
       <div>
-        <input
-          type="text"
+        <DebounceInput
           placeholder="Search"
-          onKeyDown={this.onSearchKeyDown}
-          onChange={this.setSearchTerm}
+          minLength={2}
+          debounceTimeout={300}
+          onChange={this.doSearch}
         />
-        <button onClick={this.doSearch}>Search</button>
 
         {this.state.loading && <div>Loading...</div>}
 
