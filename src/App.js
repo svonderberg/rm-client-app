@@ -18,8 +18,7 @@ class App extends Component {
     this.state = {
       searchTerm: '',
       loading: true,
-      artObjects: [],
-      count: 0
+      artObjects: []
     };
   }
 
@@ -41,8 +40,7 @@ class App extends Component {
           .then(data => {
             that.setState({
               loading: false,
-              artObjects: data.artObjects,
-              count: data.count
+              artObjects: data.artObjects
             });
           });
       });
