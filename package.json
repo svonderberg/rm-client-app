@@ -1,0 +1,24 @@
+{
+  "name": "rm-client-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "react": "^15.5.4",
+    "react-debounce-input": "^3.0.0",
+    "react-dom": "^15.5.4",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "0.0.1",
+    "react-scripts": "1.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  }
+}
