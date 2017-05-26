@@ -12,7 +12,7 @@ body {
 .state-message {
   position: relative;
   top: 225px;
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
   font-size: 3em;
   color: lightgrey;
@@ -22,6 +22,9 @@ body {
 ul {
   margin-top: $search-container-height;
 }
+
+// @-webkit-keyframes move_eye { from { margin-left: -20%; } to { margin-left: 100%; }  }
+@keyframes alpha_in { from { opacity: 0; } to { opacity: 1; }  }
 
 ul, li {
   padding: 0;
@@ -35,16 +38,17 @@ ul, li {
     cursor: pointer;
     position: relative;
     background-size: cover;
+    animation: 1s ease-in 0s 1 normal alpha_in;
 
     h1 {
       color: white;
       margin: 0;
       padding: 20px 30px;
-      background-color: hsla(0, 0, 0, 0.75);
+      background-color: hsla(0, 0, 0, 0.55);
       position: absolute;
       bottom: 0;
       font-weight: normal;
-      font-size: 2em;
+      font-size: 1.25em;
     }
   }
 }
@@ -63,18 +67,28 @@ ul, li {
     background-color: hsla(0, 0, 0, 0.95);
     border: none;
     border-bottom: 2px solid white;
-    font-size:3em;
+    font-size:2em;
     color: white;
     padding: 20px 0;
-    width: 60%;
+    width: 80%;
     font-family: 'Cantata One', serif;
     margin-top: 10px;
     margin-bottom: 20px;
   }
 
+  > div {
+    padding-right: 20px;
+  }
+
   > div, > div a {
     color: lightgrey;
-    font-size: 1em;
+    font-size: .95em;
     opacity: .75;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
+

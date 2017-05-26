@@ -8,7 +8,7 @@ body {
 .state-message {
   position: relative;
   top: 225px;
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
   font-size: 3em;
   color: lightgrey;
@@ -16,6 +16,12 @@ body {
 
 ul {
   margin-top: 200px; }
+
+@keyframes alpha_in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 
 ul, li {
   padding: 0;
@@ -27,16 +33,17 @@ ul, li {
     display: block;
     cursor: pointer;
     position: relative;
-    background-size: cover; }
+    background-size: cover;
+    animation: 1s ease-in 0s 1 normal alpha_in; }
     ul a h1, li a h1 {
       color: white;
       margin: 0;
       padding: 20px 30px;
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.55);
       position: absolute;
       bottom: 0;
       font-weight: normal;
-      font-size: 2em; }
+      font-size: 1.25em; }
 
 .search-input-container {
   background-color: black;
@@ -51,14 +58,19 @@ ul, li {
     background-color: rgba(0, 0, 0, 0.95);
     border: none;
     border-bottom: 2px solid white;
-    font-size: 3em;
+    font-size: 2em;
     color: white;
     padding: 20px 0;
-    width: 60%;
+    width: 80%;
     font-family: 'Cantata One', serif;
     margin-top: 10px;
     margin-bottom: 20px; }
+  .search-input-container > div {
+    padding-right: 20px; }
   .search-input-container > div, .search-input-container > div a {
     color: lightgrey;
-    font-size: 1em;
+    font-size: .95em;
     opacity: .75; }
+    .search-input-container > div p, .search-input-container > div a p {
+      margin: 0;
+      padding: 0; }

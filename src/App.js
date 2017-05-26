@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import DebounceInput from 'react-debounce-input';
 import '../src/App.css';
+import 'whatwg-fetch';
 
-const ArtObject = ({id, title, pageURL, imageURL}) => 
+const ArtObject = ({index, id, title, pageURL, imageURL}) => 
   <li>
-    <a href={pageURL} target="_blank" rel="noopener noreferrer" style={{backgroundImage: `url(${imageURL})`}}>
+    <a href={pageURL} target="_blank" rel="noopener noreferrer" style={{backgroundImage: `url(${imageURL})`, animationDuration: (1.25 + (index / 2)) + 's'}}>
       <h1>{title}</h1>
     </a>
   </li>;
@@ -15,7 +16,7 @@ class App extends Component {
     this.doSearch = this.doSearch.bind(this);
 
     this.state = {
-      searchTerm: 'rembrandt',
+      searchTerm: 'vermeer',
       loading: true,
       artObjects: []
     };
@@ -32,7 +33,7 @@ class App extends Component {
       searchTerm: e ? e.target.value : ''
     });
 
-    fetch(`http://localhost:3000/${that.state.searchTerm}`)
+    fetch(`http://192.168.0.110:3000/${that.state.searchTerm}`)
       .then(res => {
         res
           .json()
@@ -56,20 +57,21 @@ class App extends Component {
         {this.state.loading || 
           <ul>
             {this.state.artObjects.map(
-              (artObject, i) => <ArtObject key={i} {...artObject} />
+              (artObject, i) => <ArtObject index={i} key={i} {...artObject} />
             )}
           </ul>}
 
         <div className="search-input-container">
           <DebounceInput
-            placeholder="Rembrandt van Rijn"
+            placeholder="Vermeer"
             minLength={2}
-            debounceTimeout={300}
+            debounceTimeout={700}
             onChange={this.doSearch}
           />
 
           <div>
-            <p>Search the entire collection of the <a href="https://www.rijksmuseum.nl/en/">Rijksmuseum in Amsterdam</a>. Developed using the <a href="https://rijksmuseum.github.io/">Rijksmuseum API.</a></p> 
+            <p>Search the entire collection of the <a href="https://www.rijksmuseum.nl/en/">Rijksmuseum in Amsterdam</a>.</p>
+            <p>Developed using the <a href="https://rijksmuseum.github.io/">Rijksmuseum API.</a></p> 
           </div>
         </div>
       </div>
