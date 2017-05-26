@@ -3,6 +3,8 @@ import DebounceInput from 'react-debounce-input';
 import '../src/App.css';
 import 'whatwg-fetch';
 
+const ENDPOINT = "https://rm-search.herokuapp.com/";
+
 const ArtObject = ({index, id, title, pageURL, imageURL}) => 
   <li>
     <a href={pageURL} target="_blank" rel="noopener noreferrer" style={{backgroundImage: `url(${imageURL})`, animationDuration: (1.25 + (index / 2)) + 's'}}>
@@ -33,7 +35,7 @@ class App extends Component {
       searchTerm: e ? e.target.value : ''
     });
 
-    fetch(`http://192.168.0.110:3000/${that.state.searchTerm}`)
+    fetch(`${ENDPOINT}${that.state.searchTerm}`)
       .then(res => {
         res
           .json()
